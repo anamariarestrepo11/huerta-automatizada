@@ -1,15 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huerta Automatizada</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
+    .navbar {
+      background-color: #2e7d32; /* verde oscuro */
+      overflow: hidden;
+      padding: 10px 20px;
+    }
+
+    .navbar h1 {
+      float: left;
+      color: #fff;
+      margin: 0;
+      padding: 10px 0;
+      font-size: 22px;
+    }
+
+    .navbar a {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      background-color: #60c065;
+    }
+
+    /* Limpiar floats */
+    .navbar::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+</head>
 <body>
 
-</body>
-<h1>Hola mundo</h1>
+  <div class="navbar">
+    <h1> Huerta Automatizada </h1>
+   
 
+</body>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e4ecf8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #50c082;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #54e691;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4b993c;
+            color: rgb(253, 253, 253);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #54d15e;
+        }
+
+        .mensaje {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>🌳Iniciar Sesión🌳</h2>
+    <form action="#" method="post">
+        <input type="text" name="usuario" placeholder="Usuario" required>
+        <input type="password" name="contrasena" placeholder="Contraseña" required>
+        <input type="submit" value="Entrar">
+    </form>
+    <div class="mensaje">
+        ¿No tienes cuenta? <a href="#">Regístrate</a>
+    </div>
+</div>
+
+</body>
 </html>
