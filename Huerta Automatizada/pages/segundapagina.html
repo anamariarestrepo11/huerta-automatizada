@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Huerta Automatizada - Dashboard</title>
+    <style>
+        /* Reset y estilo base */
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: #e6f2e6;
+            color: #2e7d32;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* Barra superior */
+        
+        nav {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+        
+        nav .menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        nav .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav .menu a:hover {
+            color: #a5d6a7;
+        }
+        
+        nav .search-container {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        nav .search-container input[type="search"] {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 0.9rem;
+            width: 180px;
+            transition: width 0.3s ease;
+        }
+        
+        nav .search-container input[type="search"]:focus {
+            width: 250px;
+        }
+        /* Carrusel container centrado */
+        
+        .carousel {
+            margin: 20px auto 30px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-width: 900px;
+            height: 350px;
+            background-color: #fff;
+        }
+        
+        .carousel img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .carousel img.active {
+            display: block;
+            opacity: 1;
+        }
+        /* Botones carrusel */
+        
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(46, 125, 50, 0.7);
+            border: none;
+            color: white;
+            padding: 10px 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            user-select: none;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+        
+        .carousel-button:hover {
+            background-color: rgba(46, 125, 50, 1);
+        }
+        
+        .carousel-button.prev {
+            left: 15px;
+        }
+        
+        .carousel-button.next {
+            right: 15px;
+        }
+        
+        main {
+            flex-grow: 1;
+            padding: 0 30px 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h2 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #4a7c4a;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            color: #2e7d32;
+            margin-top: auto;
+            border-top: 1px solid #c8e6c9;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Botón moderno */
+        
+        .btn {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #1b5e20;
+        }
+        /* Responsive nav menu y carrusel */
+        
+        @media (max-width: 600px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px 15px;
+            }
+            nav .menu {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+                width: 100%;
+            }
+            nav .search-container {
+                width: 100%;
+                text-align: center;
+                margin-left: 0;
+                margin-top: 8px;
+            }
+            nav .search-container input[type="search"] {
+                width: 90%;
+                max-width: 300px;
+            }
+            .carousel {
+                height: 220px;
+                margin: 15px 15px 25px;
+            }
+            .carousel img {
+                height: 220px;
+            }
+            main {
+                padding: 0 15px 30px;
+            }
+            footer {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Ecotec</div>
+        <div class="menu">
+            <a href="#reseñas">Reseñas</a>
+            <a href="#politica">Política</a>
+            <a href="#contactanos">Contáctanos</a>
+            <a href="#sobre-nosotros">Sobre Nosotros</a>
+            <div class="search-container">
+                <input type="search" placeholder="Buscar..." aria-label="Buscar" />
+            </div>
+        </div>
+    </nav>
+
+    <div class="carousel" aria-label="Carrusel de imágenes de huertos y granjas">
+        <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
+        <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
+
+        <img src="https://images.unsplash.com/photo-1601758174641-32f6a7b6e6f0?auto=format&fit=crop&w=900&q=80" alt="Huerto con cultivo de verduras" class="active" />
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Granjas con animales y campo verde" />
+        <img src="https://images.unsplash.com/photo-1445820132831-cb1d30e11d12?auto=format&fit=crop&w=900&q=80" alt="Huerta urbana con cajas de cultivo" />
+        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=900&q=80" alt="Granjas con pasto y árboles" />
+    </div>
+
+    <main>
+        <section class="card">
+            <h2>Estado de la Humedad</h2>
+            <p>El sensor indica que la humedad actual del suelo es del 45%. El sistema activará el riego si baja del 40%.</p>
+            <a href="#" class="btn">Activar Riego Manual</a>
+        </section>
+
+        <section class="card">
+            <h2>Temperatura</h2>
+            <p>La temperatura ambiental es de 22°C, ideal para el crecimiento de las plantas.</p>
+        </section>
+
+        <section class="card">
+            <h2>Luz Solar</h2>
+            <p>La luz solar actual es moderada, el sistema ajusta las luces LED para suplementar si es necesario.</p>
+        </section>
+
+        <section class="card">
+            <h2>Alertas</h2>
+            <p>No hay alertas por el momento. El sistema está funcionando correctamente.</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Huerta Automatizada - Todos los derechos reservados
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('.carousel img');
+        const prevBtn = document.querySelector('.carousel-button.prev');
+        const nextBtn = document.querySelector('.carousel-button.next');
+        let currentIndex = 0;
+        let interval;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            prevImage();
+            resetInterval();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextImage();
+            resetInterval();
+        });
+
+        function resetInterval() {
+            clearInterval(interval);
+            interval = setInterval(nextImage, 5000);
+        }
+
+        // Iniciar carrusel automático
+        interval = setInterval(nextImage, 5000);
+    </script>
+</body>
+
+</html>
