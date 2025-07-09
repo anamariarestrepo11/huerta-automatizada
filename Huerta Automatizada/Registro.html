@@ -2,69 +2,76 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Huerta Automatizada</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro - Huerta Automatizada</title>
     <style>
         body {
-            margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #e0f2e9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            /* para que navbar y contenido estén en columna */
+            min-height: 100vh;
         }
-        /* NAVBAR */
+        /* Navbar */
         
         .navbar {
             background-color: #2e7d32;
-            overflow: hidden;
             padding: 15px 30px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .navbar h1 {
-            float: inline-start;
-            color: #fff;
+            color: white;
             margin: 0;
             font-size: 26px;
         }
         
         .navbar a {
-            float: inline-end;
             color: white;
             text-decoration: none;
-            padding: 12px 20px;
             font-weight: bold;
+            margin-left: 20px;
+            padding: 8px 16px;
             border-radius: 5px;
         }
         
         .navbar a:hover {
             background-color: #60c065;
         }
+        /* Contenedor registro centrado */
         
-        .navbar::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-        /* LOGIN FORM */
-        
-        .login-container {
-            background-color: #ffffff;
-            padding: 40px;
+        .registro-container {
+            background: white;
+            padding: 30px 40px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            inline-size: 320px;
-            margin: 80px auto;
+            width: 320px;
+            margin: auto;
+            /* centra horizontalmente */
+            margin-top: 60px;
+            /* separación debajo de navbar */
+            flex-grow: 1;
+            /* que crezca para empujar footer si hay */
         }
         
         h2 {
-            text-align: center;
             color: #388e3c;
-            margin-block-end: 25px;
+            text-align: center;
+            margin-bottom: 25px;
         }
         
         input[type="text"],
+        input[type="email"],
         input[type="password"] {
-            inline-size: 100%;
+            width: 100%;
             padding: 12px;
             margin: 10px 0;
             border: 1px solid #81c784;
@@ -73,7 +80,7 @@
         }
         
         input[type="submit"] {
-            inline-size: 100%;
+            width: 100%;
             background-color: #43a047;
             color: white;
             padding: 12px;
@@ -86,44 +93,28 @@
         input[type="submit"]:hover {
             background-color: #66bb6a;
         }
-        
-        .mensaje {
-            text-align: center;
-            margin-block-start: 15px;
-        }
-        
-        .mensaje a {
-            color: #2e7d32;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .mensaje a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 
 <body>
 
-    <div class="navbar">
+    <nav class="navbar">
         <h1>🌿 Huerta Automatizada</h1>
-        <a href="#">Contacto</a>
-        <a href="#">Inicio</a>
-    </div>
-
-    <div class="login-container">
-        <h2>🌳 Iniciar Sesión</h2>
-        <form action="#" method="post">
-            <input type="text" name="usuario" placeholder="👤 Usuario" required />
-            <input type="password" name="contrasena" placeholder="🔒 Contraseña" required />
-            <input type="submit" value="Entrar" />
-        </form>
-        <div class="mensaje">
-            ¿No tienes cuenta? <a href="Huerta Automatizada/Registro.html">Regístrate</a>
+        <div>
+            <a href="index.html">Inicio</a>
+            <a href="contacto.html">Contacto</a>
         </div>
-    </div>
+    </nav>
 
+    <div class="registro-container">
+        <h2>📝 Registrarse</h2>
+        <form action="#" method="post">
+            <input type="text" name="usuario" placeholder="Usuario" required />
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <input type="password" name="contrasena" placeholder="Contraseña" required />
+            <input type="submit" value="Registrar" />
+        </form>
+    </div>
 
 </body>
 
