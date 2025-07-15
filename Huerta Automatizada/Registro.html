@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Registro - Huerta Automatizada</title>
@@ -14,10 +13,8 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            /* para que navbar y contenido estén en columna */
-            min-height: 100vh;
+            min-block-size: 100vh;
         }
-        /* Navbar */
         
         .navbar {
             background-color: #2e7d32;
@@ -38,7 +35,7 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            margin-left: 20px;
+            margin-inline-start: 20px;
             padding: 8px 16px;
             border-radius: 5px;
         }
@@ -46,32 +43,28 @@
         .navbar a:hover {
             background-color: #60c065;
         }
-        /* Contenedor registro centrado */
         
         .registro-container {
             background: white;
             padding: 30px 40px;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            width: 320px;
+            inline-size: 320px;
             margin: auto;
-            /* centra horizontalmente */
-            margin-top: 60px;
-            /* separación debajo de navbar */
+            margin-block-start: 60px;
             flex-grow: 1;
-            /* que crezca para empujar footer si hay */
         }
         
         h2 {
             color: #388e3c;
             text-align: center;
-            margin-bottom: 25px;
+            margin-block-end: 25px;
         }
         
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            width: 100%;
+            inline-size: 100%;
             padding: 12px;
             margin: 10px 0;
             border: 1px solid #81c784;
@@ -80,7 +73,7 @@
         }
         
         input[type="submit"] {
-            width: 100%;
+            inline-size: 100%;
             background-color: #43a047;
             color: white;
             padding: 12px;
@@ -108,13 +101,20 @@
 
     <div class="registro-container">
         <h2>📝 Registrarse</h2>
-        <form action="#" method="post">
+        <form id="formRegistro">
             <input type="text" name="usuario" placeholder="Usuario" required />
             <input type="email" name="email" placeholder="Correo electrónico" required />
             <input type="password" name="contrasena" placeholder="Contraseña" required />
             <input type="submit" value="Registrar" />
         </form>
     </div>
+
+    <script>
+        document.getElementById('formRegistro').addEventListener('submit', function(e) {
+            e.preventDefault(); // Detiene el envío del formulario
+            window.location.href = 'Paguina_principal.html'; // Cambia esto por tu destino real
+        });
+    </script>
 
 </body>
 

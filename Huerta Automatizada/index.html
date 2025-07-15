@@ -11,7 +11,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #e0f2e9;
         }
-        /* NAVBAR */
         
         .navbar {
             background-color: #2e7d32;
@@ -45,7 +44,6 @@
             clear: both;
             display: table;
         }
-        /* LOGIN FORM */
         
         .login-container {
             background-color: #ffffff;
@@ -114,16 +112,23 @@
 
     <div class="login-container">
         <h2>🌳 Iniciar Sesión</h2>
-        <form action="#" method="post">
+        <form id="loginForm">
             <input type="text" name="usuario" placeholder="👤 Usuario" required />
             <input type="password" name="contrasena" placeholder="🔒 Contraseña" required />
             <input type="submit" value="Entrar" />
         </form>
         <div class="mensaje">
-            ¿No tienes cuenta? <a href="Huerta Automatizada/Registro.html">Regístrate</a>
+            ¿No tienes cuenta? <a href="Registro.html">Regístrate</a>
         </div>
     </div>
 
+    <script>
+        // Captura el envío del formulario
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que se recargue la página
+            window.location.href = 'paguina_principal.html'; // Redirige a otra página
+        });
+    </script>
 
 </body>
 
