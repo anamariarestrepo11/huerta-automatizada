@@ -1,2 +1,0 @@
-# huerta-automatizada
-# huerta-automatizada
