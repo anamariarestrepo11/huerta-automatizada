@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociales y Contacto</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS para mayor estilo -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        
+        h1,
+        h2 {
+            color: #388e3c;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        
+        a {
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            color: #388e3c;
+        }
+        
+        hr {
+            border: 1px solid #e0e0e0;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .form-label {
+            color: #388e3c;
+        }
+        
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #81c784;
+            padding: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-shadow: none;
+        }
+        
+        .form-control:focus {
+            border-color: #43a047;
+            box-shadow: 0 0 5px rgba(67, 160, 71, 0.3);
+        }
+        
+        .btn-primary {
+            background-color: #43a047;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #66bb6a;
+        }
+        
+        .social-links {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .social-links li {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container mt-5">
+        <h1>Redes Sociales</h1>
+        <p>Síguenos en nuestras redes sociales:</p>
+        <ul class="social-links">
+            <li>Instagram: <a href="https://instagram.com/ana._.m310" target="_blank">@ana._.m310</a></li>
+            <li>Facebook: <a href="https://facebook.com" target="_blank">ecotecoficiall</a></li>
+            <li>Twitter: <a href="https://twitter.com/ecotecoficiall" target="_blank">@ecotecoficiall</a></li>
+        </ul>
+
+        <hr>
+
+        <h2>Contáctanos</h2>
+        <form action="mailto:tuemail@ejemplo.com" method="post" enctype="text/plain">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="correo" name="correo" required>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </main>
+
+    <!-- Bootstrap JS y dependencias (opcional si necesitas funcionalidad adicional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

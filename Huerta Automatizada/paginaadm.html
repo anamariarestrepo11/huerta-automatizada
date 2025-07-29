@@ -14,6 +14,7 @@
             display: flex;
             min-height: 100vh;
         }
+        /* Menú de navegación */
         
         .sidebar {
             width: 250px;
@@ -71,8 +72,9 @@
             margin: 0;
             font-size: 26px;
         }
+        /* Panel principal */
         
-        .dashboard-cards {
+        .dashboard {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
@@ -84,11 +86,6 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
         }
         
         .card h3 {
@@ -101,57 +98,69 @@
             font-size: 18px;
             color: #616161;
         }
+        /* Peticiones */
         
-        .card .button {
-            background-color: #43a047;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            text-align: center;
-            margin-top: 20px;
-            font-size: 16px;
-        }
-        
-        .card .button:hover {
-            background-color: #66bb6a;
-        }
-        /* Formularios de administración */
-        
-        .form-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+        .peticiones {
             margin-top: 40px;
         }
         
-        .form-container h3 {
+        .peticiones h2 {
             color: #388e3c;
-            margin-bottom: 20px;
             font-size: 24px;
+            margin-bottom: 20px;
         }
         
-        .form-container input,
-        .form-container textarea {
+        .peticiones ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .peticiones li {
+            background-color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .peticiones li h4 {
+            margin: 0;
+            font-size: 18px;
+            color: #388e3c;
+        }
+        
+        .peticiones li p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #616161;
+        }
+        
+        .respuesta-container {
+            margin-top: 20px;
+        }
+        
+        .respuesta-container textarea {
             width: 100%;
             padding: 12px;
-            margin-bottom: 20px;
             border: 1px solid #81c784;
             border-radius: 6px;
             background-color: #f1fdf2;
+            font-size: 16px;
+            margin-bottom: 10px;
+            resize: vertical;
         }
         
-        .form-container button {
+        .respuesta-container button {
             background-color: #43a047;
             color: white;
             padding: 12px 20px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
+            transition: background-color 0.3s ease;
         }
         
-        .form-container button:hover {
+        .respuesta-container button:hover {
             background-color: #66bb6a;
         }
     </style>
@@ -178,76 +187,59 @@
         <section id="dashboard">
             <h2>Panel Principal</h2>
 
-            <div class="dashboard-cards">
+            <div class="dashboard">
                 <div class="card">
                     <h3>Estado General</h3>
-                    <p>Todo el sistema está funcionando correctamente. ¡Todo está bajo control!</p>
-                    <button class="button">Ver detalles</button>
+                    <p>El sistema está funcionando correctamente.</p>
                 </div>
 
                 <div class="card">
                     <h3>Temperatura Actual</h3>
                     <p>25°C</p>
-                    <button class="button">Ajustar Configuración</button>
                 </div>
 
                 <div class="card">
                     <h3>Humedad del Suelo</h3>
                     <p>60%</p>
-                    <button class="button">Ver Detalles</button>
                 </div>
 
                 <div class="card">
                     <h3>Riego</h3>
                     <p>Activo</p>
-                    <button class="button">Controlar Sistema</button>
                 </div>
             </div>
         </section>
 
-        <!-- Gestión de usuarios -->
-        <section id="usuarios">
-            <h2>Gestionar Usuarios</h2>
-            <div class="form-container">
-                <h3>Agregar Nuevo Usuario</h3>
-                <form action="#">
-                    <input type="text" placeholder="Nombre de Usuario" required>
-                    <input type="email" placeholder="Correo Electrónico" required>
-                    <input type="password" placeholder="Contraseña" required>
-                    <button type="submit">Agregar Usuario</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Configuración del sitio -->
-        <section id="configuracion">
-            <h2>Configuración del Sistema</h2>
-            <div class="form-container">
-                <h3>Actualizar Parámetros del Sistema</h3>
-                <form action="#">
-                    <label for="temp">Temperatura Ideal:</label>
-                    <input type="number" id="temp" placeholder="Temperatura en °C" required>
-
-                    <label for="humedad">Humedad Ideal:</label>
-                    <input type="number" id="humedad" placeholder="Humedad en %" required>
-
-                    <label for="tiempo_riego">Tiempo de Riego:</label>
-                    <input type="number" id="tiempo_riego" placeholder="Tiempo en minutos" required>
-
-                    <button type="submit">Actualizar Configuración</button>
-                </form>
-            </div>
-        </section>
-
         <!-- Peticiones -->
-        <section id="peticiones">
+        <section id="peticiones" class="peticiones">
             <h2>Peticiones de Usuarios</h2>
 
-            <div class="form-container">
-                <h3>Responde las Peticiones</h3>
-                <textarea placeholder="Escribe tu respuesta aquí..." rows="5"></textarea>
-                <button>Enviar Respuesta</button>
-            </div>
+            <ul>
+                <li>
+                    <h4>Usuario 1</h4>
+                    <p>Quisiera saber si el sistema de riego está funcionando correctamente.</p>
+                    <div class="respuesta-container">
+                        <textarea placeholder="Escribe tu respuesta aquí..."></textarea>
+                        <button>Responder</button>
+                    </div>
+                </li>
+                <li>
+                    <h4>Usuario 2</h4>
+                    <p>¿Cuál es el nivel de humedad ideal para las plantas en este sistema?</p>
+                    <div class="respuesta-container">
+                        <textarea placeholder="Escribe tu respuesta aquí..."></textarea>
+                        <button>Responder</button>
+                    </div>
+                </li>
+                <li>
+                    <h4>Usuario 3</h4>
+                    <p>Me gustaría recibir más información sobre el control de temperatura.</p>
+                    <div class="respuesta-container">
+                        <textarea placeholder="Escribe tu respuesta aquí..."></textarea>
+                        <button>Responder</button>
+                    </div>
+                </li>
+            </ul>
         </section>
     </div>
 
