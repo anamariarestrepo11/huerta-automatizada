@@ -5,129 +5,190 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Huerta Automatizada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         body {
-            margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e0f2e9;
-        }
-        
-        .navbar {
-            background-color: #2e7d32;
-            overflow: hidden;
-            padding: 15px 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar h1 {
-            float: inline-start;
-            color: #fff;
+            background-color: #eef9f1;
+            color: #333;
             margin: 0;
-            font-size: 26px;
+            padding: 0;
         }
         
-        .navbar a {
-            float: inline-end;
+        header {
+            background-color: #4CAF50;
             color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            font-weight: bold;
-            border-radius: 5px;
+            padding: 30px 0;
+            text-align: center;
         }
         
-        .navbar a:hover {
-            background-color: #60c065;
-        }
-        
-        .navbar::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-        
-        .login-container {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            inline-size: 320px;
-            margin: 80px auto;
+        section {
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: auto;
         }
         
         h2 {
-            text-align: center;
             color: #388e3c;
-            margin-block-end: 25px;
+            margin-bottom: 15px;
         }
         
-        input[type="text"],
-        input[type="password"] {
-            inline-size: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #81c784;
-            border-radius: 6px;
-            background-color: #f1fdf2;
+        ul {
+            padding-left: 20px;
         }
         
-        input[type="submit"] {
-            inline-size: 100%;
-            background-color: #43a047;
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        
+        footer {
+            background-color: #4CAF50;
             color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        input[type="submit"]:hover {
-            background-color: #66bb6a;
-        }
-        
-        .mensaje {
             text-align: center;
-            margin-block-start: 15px;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+        /* Carrusel */
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
         
-        .mensaje a {
-            color: #2e7d32;
-            text-decoration: none;
-            font-weight: bold;
+        .carousel img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: none;
+            border-radius: 12px;
         }
         
-        .mensaje a:hover {
-            text-decoration: underline;
+        .carousel img.active {
+            display: block;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+        }
+        
+        .carousel-controls i {
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+            user-select: none;
+        }
+        
+        .carousel-controls i:hover {
+            background: rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="navbar">
+    <header>
         <h1>🌿 Huerta Automatizada</h1>
-        <a href="#">Contacto</a>
-        <a href="#">Inicio</a>
+        <p>Una forma inteligente y sostenible de cultivar en casa</p>
+    </header>
+
+    <section>
+        <h2><strong>¿Qué es una huerta automatizada?</strong></h2>
+        <i> huerta automatizada es un sistema de cultivo que utiliza tecnología para controlar factores como el riego <br>
+                 la luz, la temperatura y la humedad. Esto permite cultivar frutas, verduras y hierbas de manera eficiente y con menos esfuerzo.
+            </i>
+    </section>
+
+    <div class="carousel" aria-label="Carrusel de imágenes de huertos y granjas">
+        <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
+        <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
+
+        <img src="imagenes.jpg/IMAGEN1.jpg" alt="imagen1" class="active" />
+        <img src="imagenes.jpg/imagen2.jpg" alt="imagen2" />
+        <img src="imagenes.jpg/imagen3.jpeg" alt="imagen3" />
+        <img src="imagenes.jpg/imagen4.jpg" alt="imagen4" />
+        <img src="imagenes.jpg/imagen5.webp" alt="imagen5" />
     </div>
 
-    <div class="login-container">
-        <h2>🌳 Iniciar Sesión</h2>
-        <form id="loginForm">
-            <input type="text" name="usuario" placeholder="👤 Usuario" required />
-            <input type="password" name="contrasena" placeholder="🔒 Contraseña" required />
-            <input type="submit" value="Entrar" />
-        </form>
-        <div class="mensaje">
-            ¿No tienes cuenta? <a href="Registro.html">Regístrate</a>
-        </div>
-    </div>
+
+
+    <section>
+        <h2> <strong> beneficios </strong></h2>
+        <ul>
+            <li> <i>de agua mediante riego por sensores</i> </li>
+            <li> <i>Producción constante de alimentos frescos.</i> </li>
+            <li> <i>Menor mantenimiento diario   </i></li>
+            <li> <i>Ideal para personas con poco tiempo o experiencia en jardinería </i> </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>
+            <Strong> ¿Cómo cuidarla? </Strong>
+        </h2>
+        <p> <i> Aunque es automatizada, la huerta necesita atención ocasional: </p>
+            <ul>
+                <li> Revisar sensores y sistemas de riego periódicamente.</li>
+                <li>Reponer nutrientes en el suelo o en el sistema hidropónico.</li>
+                <li>Podar las plantas cuando sea necesario.</li>
+                <li>Controlar plagas y enfermedades de forma natural o con productos ecológicos.</i> </li>
+            <img src="imagenes.jpg/imagen4.jpg" alt="imagen4">
+
+            </ul>
+    </section>
+
+    <section>
+        <h2> <strong> Conclusión </strong></h2>
+        <p>
+            <i>Una huerta automatizada es una excelente opción para quienes buscan cultivar sus propios alimentos <br> 
+                    de forma práctica y sostenible. Con un poco de mantenimiento y tecnología, puedes disfrutar de productos <br>
+                     frescos durante todo el año <br>
+                </i>
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 - Proyecto de Huerta Automatizada</p>
+    </footer>
 
     <script>
-        // Captura el envío del formulario
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que se recargue la página
-            window.location.href = 'paguina_principal.html'; // Redirige a otra página
-        });
+        let indiceActual = 0;
+        const imagenes = document.querySelectorAll(".carousel img");
+
+        function mostrarImagen(index) {
+            imagenes.forEach((img, i) => {
+                img.classList.toggle("active", i === index);
+            });
+        }
+
+        function moverCarrusel(direccion) {
+            indiceActual += direccion;
+            if (indiceActual < 0) indiceActual = imagenes.length - 1;
+            if (indiceActual >= imagenes.length) indiceActual = 0;
+            mostrarImagen(indiceActual);
+        }
+
+        // Mostrar la primera imagen al cargar
+        mostrarImagen(indiceActual);
+
+        // Auto-avance cada 5 segundos
+        setInterval(() => moverCarrusel(1), 5000);
     </script>
 
 </body>

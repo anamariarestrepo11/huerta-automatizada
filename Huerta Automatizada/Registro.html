@@ -2,120 +2,76 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Registro - Huerta Automatizada</title>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e0f2e9;
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e4ecf8;
             display: flex;
-            flex-direction: column;
-            min-block-size: 100vh;
-        }
-        
-        .navbar {
-            background-color: #2e7d32;
-            padding: 15px 30px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-        }
-        
-        .navbar h1 {
-            color: white;
-            margin: 0;
-            font-size: 26px;
-        }
-        
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            margin-inline-start: 20px;
-            padding: 8px 16px;
-            border-radius: 5px;
-        }
-        
-        .navbar a:hover {
-            background-color: #60c065;
+            height: 100vh;
         }
         
         .registro-container {
-            background: white;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            inline-size: 320px;
-            margin: auto;
-            margin-block-start: 60px;
-            flex-grow: 1;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
         
         h2 {
-            color: #388e3c;
             text-align: center;
-            margin-block-end: 25px;
+            color: #50c082;
         }
         
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            inline-size: 100%;
-            padding: 12px;
+            width: 100%;
+            padding: 10px;
             margin: 10px 0;
-            border: 1px solid #81c784;
-            border-radius: 6px;
-            background-color: #f1fdf2;
+            border: 1px solid #54e691;
+            border-radius: 5px;
         }
         
         input[type="submit"] {
-            inline-size: 100%;
-            background-color: #43a047;
+            width: 100%;
+            background-color: #4b993c;
             color: white;
-            padding: 12px;
+            padding: 10px;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
         }
         
         input[type="submit"]:hover {
-            background-color: #66bb6a;
+            background-color: #54d15e;
         }
     </style>
 </head>
 
 <body>
-
-    <nav class="navbar">
-        <h1>🌿 Huerta Automatizada</h1>
-        <div>
-            <a href="index.html">Inicio</a>
-            <a href="contacto.html">Contacto</a>
-        </div>
-    </nav>
-
     <div class="registro-container">
-        <h2>📝 Registrarse</h2>
-        <form id="formRegistro">
-            <input type="text" name="usuario" placeholder="Usuario" required />
-            <input type="email" name="email" placeholder="Correo electrónico" required />
-            <input type="password" name="contrasena" placeholder="Contraseña" required />
-            <input type="submit" value="Registrar" />
+        <h2>🌱 Regístrate 🌱</h2>
+        <!-- ✅ FORMULARIO CON ID -->
+        <form id="registro-form" action="#" method="post">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <input type="submit" value="Regístrame">
         </form>
     </div>
 
+    <!-- ✅ SCRIPT CORRECTO -->
     <script>
-        document.getElementById('formRegistro').addEventListener('submit', function(e) {
-            e.preventDefault(); // Detiene el envío del formulario
-            window.location.href = 'Paguina_principal.html'; // Cambia esto por tu destino real
+        document.getElementById('registro-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario
+            window.location.href = "Paguina_principal.html"; // Redirige
         });
     </script>
-
 </body>
 
 </html>
