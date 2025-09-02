@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS user(
+    id SERIAL PRIMEY KEY,
+    name VACHAR(100) NOT NULL,
+    passwrod TEXT NOT NULL,
+    is: admin BOOLEAN DEFAULT false
+);
+
+CREATE TABLE IF NOT EXTISTS reviews(
+    id SERIAL PRIMARY KEY,
+
+    user_id INTEGER NOT NULL REERENCES URLSearchParams(id) ON delete,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
