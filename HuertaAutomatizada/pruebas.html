@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Panel de Administración de Reseñas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 5px;
+        }
+        
+        button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Panel de Administración de Reseñas</h2>
+
+    <table id="reviewsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Contenido</th>
+                <th>Visible</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Se cargan dinámicamente -->
+        </tbody>
+    </table>
+
+    <script>
+        const API_BASE = 'http://localhost/reviews/backend/'; // Cambia esto si tus scripts están en otra ruta
+
+        async function fetchReviews() {
+            const response = await fetch($ {
+                    API_BASE
+                }
+                admin_get_reviews.php);
+            const reviews = await response.json();
+            renderTable(reviews);
+        }
+
+        function renderTable(reviews) {
+            const tbody = document.querySelector("#reviewsTable tbody");
+            tbody.innerHTML = "";
+
+            reviews.forEach(review => {
+                const tr = document.createElement("tr");
+
+                tr.innerHTML = `
+                <td>${review.id}</td>
+                <td><input type="text" value="${review.name}" id="name-${review.id}"></td>
+                <td><input type="text" value="${review.content}" id="content-${review.id}"></td>
+                <td>
+                    <select id="visible-${review.id}">
+                        <option value="1" ${review.visible == 1 ? "selected" : ""}>Sí</option>
+                        <option value="0" ${review.visible == 0 ? "selected" : ""}>No</option>
+                    </select>
+                </td>
+                <td>
+                    <button onclick="updateReview(${review.id})">Guardar</button>
+                    <button onclick="deleteReview(${review.id})" style="color:red;">Borrar</button>
+                </td>
+            `;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+
+
+
+
+
+
+        async function deleteReview(id) {
+            if (!confirm("¿Estás seguro de que deseas borrar esta reseña?")) return;
+
+            const formData = new FormData();
+            formData.append("id", id);
+
+            const response = await fetch($ {
+                    API_BASE
+                }
+                admin_delete_review.php, {
+                    method: "POST",
+                    body: formData
+                });
+
+            const result = await response.json();
+            if (result.status === "success") {
+                alert("Reseña eliminada.");
+                fetchReviews();
+            } else {
+                alert("Error al eliminar: " + result.message);
+            }
+        }
+
+        // Cargar al iniciar
+        fetchReviews();
+    </script>
+
+</body>

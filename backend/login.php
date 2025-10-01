@@ -1,4 +1,3 @@
-
 <?php
 // Configurar encabezados CORS
 header("Content-Type: application/json");
@@ -19,7 +18,6 @@ include "db.php";
 $data = json_decode(file_get_contents("php://input"));
 
 // Verificar si se enviaron los campos necesarios
-$password = md5($data->password); // Usa MD5 solo si tu base de datos ya lo tiene así
 if (!isset($data->username) || !isset($data->password)) {
     echo json_encode([
         "success" => false,
