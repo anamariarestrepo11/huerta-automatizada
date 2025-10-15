@@ -4,7 +4,7 @@ header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 require_once "db.php";
 
-$sql = "SELECT * FROM reviews ORDER BY created_at DESC";
+$sql = "SELECT * FROM resenas ORDER BY created_at DESC";
 $result = $conn->query($sql);
 
 $resenas = [];

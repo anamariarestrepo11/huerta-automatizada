@@ -1,5 +1,5 @@
 function cargarResenasAdmin() {
-    fetch("http://localhost/ecoenergy/backend/admin_get_reviews.php")
+    fetch("http://localhost/huerta-automatizada/backend/get_reviews_admin.php")
         .then(response => response.json())
         .then(data => {
             const tbody = document.getElementById("resenas_tabla");
@@ -70,9 +70,9 @@ function cargarResenasAdmin() {
 }
 
 async function updateReview(id) {
-    const name = document.getElementById(name - $ { id }).value;
-    const content = document.getElementById(content - $ { id }).value;
-    const visible = document.getElementById(visible - $ { id }).value;
+    const name = document.getElementById(`name-${id}`).value;
+    const content = document.getElementById(`content-${id}`).value;
+    const visible = document.getElementById(`visible-${id}`).value;
 
     const formData = new FormData();
     formData.append("id", id);
@@ -81,7 +81,7 @@ async function updateReview(id) {
     formData.append("visible", visible);
 
     try {
-        const response = await fetch("http://localhost/ecoenergy/backend/admin_update_reviews.php", {
+        const response = await fetch("http://localhost/huerta-automatizada/backend/admin_update_reviews.php", {
             method: "POST",
             body: formData
         });
@@ -90,7 +90,7 @@ async function updateReview(id) {
         if (result.status === "success") {
             alert("Reseña actualizada correctamente.");
             // Actualizar las clases CSS del select según el nuevo estado
-            const selectElement = document.getElementById(visible - $ { id });
+            const selectElement = document.getElementById(`visible-${id}`);
             if (visible == 1) {
                 selectElement.className = 'status-selector status-visible';
             } else {

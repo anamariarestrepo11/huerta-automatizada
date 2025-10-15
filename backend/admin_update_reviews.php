@@ -1,19 +1,25 @@
 <?php
+// Configurar headers CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
+header("Content-Type: application/json");
 
+// Manejar preflight OPTIONS
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
 }
+
 require_once "db.php";
 
 $id = $_POST['id'];
+$content = $_POST['content'];
+$visible = $_POST['visible'];
 
-$sql = "DELETE FROM reviews WHERE id = ?";
+$sql = "UPDATE resenas SET content = ?, visible = ?, updated_at = NOW() WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
+$stmt->bind_param("sii", $content, $visible, $id);
 
 $response = [];
 
@@ -25,4 +31,4 @@ if ($stmt->execute()) {
 }
 
 echo json_encode($response);
-
+?>

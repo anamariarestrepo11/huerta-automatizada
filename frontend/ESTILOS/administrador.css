@@ -1,4 +1,5 @@
 /* Reset básico */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,7 +13,9 @@ body {
     line-height: 1.6;
 }
 
+
 /* ===== HEADER DEL PANEL ===== */
+
 .admin-header {
     background-color: #2e7d32;
     color: white;
@@ -66,14 +69,18 @@ body {
     background-color: #e53935;
 }
 
+
 /* ===== CONTENIDO PRINCIPAL ===== */
+
 .admin-container {
     max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
+
 /* ===== ESTADÍSTICAS ===== */
+
 .panel-header {
     margin-bottom: 30px;
 }
@@ -118,7 +125,9 @@ body {
     color: #555;
 }
 
+
 /* ===== TABLA DE RESEÑAS ===== */
+
 .table-container {
     overflow-x: auto;
 }
@@ -150,7 +159,9 @@ body {
     background-color: #f9f9f9;
 }
 
+
 /* Columnas específicas */
+
 .col-id {
     width: 60px;
 }
@@ -189,18 +200,18 @@ body {
     background-color: #e53935;
 }
 
+
 /* ===== RESPONSIVE ===== */
+
 @media (max-width: 768px) {
     .header-container,
     .panel-stats {
         flex-direction: column;
         align-items: flex-start;
     }
-
     .stat-card {
         width: 100%;
     }
-
     .requests-table th,
     .requests-table td {
         padding: 12px;

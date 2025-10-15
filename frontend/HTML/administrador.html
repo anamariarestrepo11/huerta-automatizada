@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Panel de administración para gestión de reseñas">
-    <meta name="author" content="Ecoenergy">
+    <meta name="author" content="Huerta-automatizada">
     <title>Panel de Administración - Reseñas Ecoenergy</title>
     <link rel="stylesheet" href="/frontend/ESTILOS/administrador.css">
 </head>
@@ -76,83 +76,10 @@
     <!-- =============================================
         JAVASCRIPT INCRUSTADO
     ============================================= -->
-    <script>
-        // Simulación de datos de reseñas
-        const reseñas = [
-            { id: 1, nombre: "Ana", mensaje: "Muy buena experiencia", fecha: "2025-10-12", visible: true },
-            { id: 2, nombre: "Luis", mensaje: "Mejorable en tiempos de respuesta", fecha: "2025-10-13", visible: false },
-            { id: 3, nombre: "María", mensaje: "Excelente atención", fecha: "2025-10-14", visible: true }
-        ];
 
-        // Mostrar estadísticas
-        function actualizarEstadisticas() {
-            const total = reseñas.length;
-            const visibles = reseñas.filter(r => r.visible).length;
-            const ocultas = total - visibles;
-
-            document.getElementById("total_resenas").textContent = total;
-            document.getElementById("visibles_resenas").textContent = visibles;
-            document.getElementById("invisibles_resenas").textContent = ocultas;
-        }
-
-        // Cargar reseñas en tabla
-        function cargarReseñas() {
-            const tbody = document.getElementById("resenas_tabla");
-            tbody.innerHTML = "";
-
-            reseñas.forEach(resena => {
-                const fila = document.createElement("tr");
-                fila.innerHTML = `
-                    <td>${resena.id}</td>
-                    <td>${resena.nombre}</td>
-                    <td>${resena.mensaje}</td>
-                    <td>${resena.fecha}</td>
-                    <td>${resena.visible ? "Sí" : "No"}</td>
-                    <td>
-                        <button onclick="toggleVisibilidad(${resena.id})">
-                            ${resena.visible ? "Ocultar" : "Mostrar"}
-                        </button>
-                        <button onclick="eliminarResena(${resena.id})">Eliminar</button>
-                    </td>
-                `;
-                tbody.appendChild(fila);
-            });
-        }
-
-        // Alternar visibilidad
-        function toggleVisibilidad(id) {
-            const index = reseñas.findIndex(r => r.id === id);
-            if (index !== -1) {
-                reseñas[index].visible = !reseñas[index].visible;
-                cargarReseñas();
-                actualizarEstadisticas();
-            }
-        }
-
-        // Eliminar reseña
-        function eliminarResena(id) {
-            const confirmacion = confirm("¿Estás seguro de que deseas eliminar esta reseña?");
-            if (confirmacion) {
-                const index = reseñas.findIndex(r => r.id === id);
-                if (index !== -1) {
-                    reseñas.splice(index, 1);
-                    cargarReseñas();
-                    actualizarEstadisticas();
-                }
-            }
-        }
-
-        // Simular cierre de sesión
-        function cerrarSesion() {
-            alert("Sesión cerrada");
-            window.location.href = "login.html";
-        }
-
-        // Inicializar panel
-        document.addEventListener("DOMContentLoaded", () => {
-            cargarReseñas();
-            actualizarEstadisticas();
-        });
+    <script src="/frontend/JAVASCRIPT/cargar_resenas.js">
+    </script>
+    <script src="/frontend/JAVASCRIPT/dele.js">
     </script>
 
 </body>

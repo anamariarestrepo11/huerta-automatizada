@@ -147,6 +147,7 @@
             <button type="submit">Ingresar</button>
         </form>
 
+
         <p id="mensaje"></p>
 
 
@@ -163,7 +164,7 @@
 
                 try {
                     const res =
-                        await fetch("http://localhost/huerta_automatizada/backend/login.php", {
+                        await fetch("http://localhost/huerta-automatizada/backend/login.php", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
@@ -182,7 +183,7 @@
                         console.log(data);
 
                         document.getElementById("mensaje").style.color = "green";
-                        window.location.href = "panel_administrador.html"
+                        window.location.href = "administrador.html"
 
                     } else {
                         document.getElementById("mensaje").style.color = "red";
