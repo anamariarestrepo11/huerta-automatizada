@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Misión, Visión y Valores</title>
+    <style>
+        /* Estilo general del cuerpo */
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4fdf6;
+            color: #2f4034;
+        }
+        /* Contenedor principal */
+        
+        .tab {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        /* Títulos principales */
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        /* Iconos junto al texto */
+        
+        .icon {
+            font-size: 1.8rem;
+            margin-right: 0.5rem;
+        }
+        /* Subtítulo con estilo especial */
+        
+        .subtitle {
+            font-style: italic;
+            color: #608060;
+            margin-top: 0.5rem;
+        }
+        /* Secciones generales */
+        
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        /* Diseño de grilla para los valores */
+        
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        /* Tarjetas de cada valor */
+        
+        .value-card {
+            background: #e6f5eb;
+            padding: 1rem;
+            border-radius: 1rem;
+            border-left: 6px solid #78c18d;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        /* Efecto al pasar el mouse */
+        
+        .value-card:hover {
+            transform: scale(1.02);
+        }
+        /* Título del valor */
+        
+        .value-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: #2b5d3d;
+        }
+        /* Texto del valor */
+        
+        .value-card p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        /* Adaptación a dispositivos móviles */
+        
+        @media (max-width: 700px) {
+            .values {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tab">
+        <!-- Misión -->
+        <div class="section">
+            <h2><span class="icon">🌿</span>Misión</h2>
+            <p>Fusionar naturaleza y tecnología para transformar espacios urbanos en ecosistemas productivos, sostenibles y autónomos, que enseñan, nutren y evolucionan junto a las personas.</p>
+            <p class="subtitle">¿Por qué es poco común? Porque no solo habla de producir alimentos, sino de crear ecosistemas vivos que también educan y se adaptan.</p>
+        </div>
+
+        <!-- Visión -->
+        <div class="section">
+            <h2><span class="icon">🌇</span>Visión</h2>
+            <p>Ser una red viva de huertas automatizadas que actúe como pulmones urbanos inteligentes, capaces de regenerar la relación entre las personas, la tecnología y la tierra en las ciudades del futuro.</p>
+            <p class="subtitle">¿Por qué es poco común? Utiliza términos como “red viva” y “pulmones urbanos inteligentes”, que proyectan una visión ecológica futurista y conectada.</p>
+        </div>
+
+        <!-- Valores -->
+        <div class="section">
+            <h2><span class="icon">💡</span>Valores Corporativos</h2>
+            <div class="values">
+                <div class="value-card">
+                    <h3>Tecnonaturaleza</h3>
+                    <p>Creemos en una alianza entre circuitos y raíces, donde cada sensor sirve a la vida vegetal y humana.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Crecimiento Autónomo</h3>
+                    <p>Así como nuestras plantas crecen solas, también fomentamos equipos y comunidades que evolucionan con autonomía y propósito.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Rebeldía Verde</h3>
+                    <p>Rompemos con lo tradicional. Cultivar en la ciudad, con tecnología, es nuestra forma de revolucionar el sistema alimentario.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Transparencia Fotosintética</h3>
+                    <p>Actuamos con claridad y apertura, como una hoja que muestra su estructura al sol.</p>
+                </div>
+                <div class="value-card">
+                    <h3>Conexión Viva</h3>
+                    <p>No solo conectamos cables y datos, sino personas con plantas, barrios con naturaleza, y ciudades con su origen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
