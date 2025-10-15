@@ -1,0 +1,85 @@
+/* Estilo general del cuerpo */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4fdf6;
+    color: #2f4034;
+}
+
+/* Contenedor principal */
+.tab {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos principales */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Iconos junto al texto */
+.icon {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+}
+
+/* Subtítulo con estilo especial */
+.subtitle {
+    font-style: italic;
+    color: #608060;
+    margin-top: 0.5rem;
+}
+
+/* Secciones generales */
+.section {
+    margin-bottom: 2.5rem;
+}
+
+/* Diseño de grilla para los valores */
+.values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Tarjetas de cada valor */
+.value-card {
+    background: #e6f5eb;
+    padding: 1rem;
+    border-radius: 1rem;
+    border-left: 6px solid #78c18d;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+/* Efecto al pasar el mouse */
+.value-card:hover {
+    transform: scale(1.02);
+}
+
+/* Título del valor */
+.value-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #2b5d3d;
+}
+
+/* Texto del valor */
+.value-card p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Adaptación a dispositivos móviles */
+@media (max-width: 700px) {
+    .values {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Huerta Automatizada </title>
+    <link rel="stylesheet" href="/frontend/ESTILOS/paguina_secundaria.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">Ecotec</div>
+        <div class="menu">
+            <a href="resenas.html">Reseñas</a>
+            <a href="politica.html">Política</a>
+            <a href="contacto.html">Contáctanos</a>
+            <a href="vision.html">nuestra vision</a>
+            <div class="search-container">
+                <input type="search" placeholder="Buscar..." aria-label="Buscar" />
+            </div>
+        </div>
+    </nav>
+
+    <div class="carousel" aria-label="Carrusel de imágenes de huertos y granjas">
+        <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
+        <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
+
+        <img src="imagenes.jpg/imagen7.jpg" alt="imagen1" class="active" />
+        <img src="imagenes.jpg/imagen8.jpg" alt="imagen2" />
+        <img src="imagenes.jpg/imagen9.webp" alt="imagen3" />
+        <img src="imagenes.jpg/imagen10.jpg" alt="imagen4" />
+        <img src="imagenes.jpg/imagen6.webp" alt="imagen5" />
+    </div>
+
+    <main>
+        <section class="card">
+            <h2>Estado de la Humedad</h2>
+            <p>El sensor indica que la humedad actual del suelo es del 45%. El sistema activará el riego si baja del 40%.</p>
+            <a href="#" class="btn">Activar Riego Manual</a>
+        </section>
+
+        <section class="card">
+            <h2>Temperatura</h2>
+            <p>La temperatura ambiental es de 22°C, ideal para el crecimiento de las plantas.</p>
+        </section>
+
+        <section class="card">
+            <h2>Luz Solar</h2>
+            <p>La luz solar actual es moderada, el sistema ajusta las luces LED para suplementar si es necesario.</p>
+        </section>
+
+        <section class="card">
+            <h2>Alertas</h2>
+            <p>No hay alertas por el momento. El sistema está funcionando correctamente.</p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Huerta Automatizada - Todos los derechos reservados
+    </footer>
+</body>
+
+
+<script>
+const images = document.querySelectorAll('.carousel img');
+const prevBtn = document.querySelector('.carousel-button.prev');
+const nextBtn = document.querySelector('.carousel-button.next');
+let currentIndex = 0;
+let interval;
+
+function showImage(index) {
+    images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+    });
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+}
+
+prevBtn.addEventListener('click', () => {
+    prevImage();
+    resetInterval();
+});
+
+nextBtn.addEventListener('click', () => {
+    nextImage();
+    resetInterval();
+});
+
+function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(nextImage, 5000);
+}
+
+// Iniciar carrusel automático
+interval = setInterval(nextImage, 5000);
+</script>
+
+
+
+</html>

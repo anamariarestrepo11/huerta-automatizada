@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="/frontend/ESTILOS.css/registro.css">
+</head>
+
+<body>
+    <div class="registro-container">
+        <h2>🌱 Regístrate 🌱</h2>
+        <!-- ✅ FORMULARIO CON ID -->
+        <form id="registro-form" action="#" method="post">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <input type="submit" value="Regístrame">
+        </form>
+    </div>
+
+    <!-- ✅ JavaScript integrado -->
+    <script>
+        document.getElementById('registro-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que se envíe el formulario
+            window.location.href = "index.html"; // Redirige
+        });
+    </script>
+</body>
+
+</html>
