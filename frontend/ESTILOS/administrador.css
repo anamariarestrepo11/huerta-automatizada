@@ -1,0 +1,219 @@
+/* Reset básico */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f4f7;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+/* ===== HEADER DEL PANEL ===== */
+
+.admin-header {
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    background-color: white;
+    color: #2e7d32;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px 16px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.admin-title h1 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+.admin-title p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.admin-actions .btn-logout {
+    background-color: #c62828;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-actions .btn-logout:hover {
+    background-color: #e53935;
+}
+
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+
+.admin-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+
+/* ===== ESTADÍSTICAS ===== */
+
+.panel-header {
+    margin-bottom: 30px;
+}
+
+.panel-header h2 {
+    font-size: 26px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.panel-header p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.panel-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border-left: 6px solid #2e7d32;
+    padding: 20px;
+    flex: 1;
+    min-width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* ===== TABLA DE RESEÑAS ===== */
+
+.table-container {
+    overflow-x: auto;
+}
+
+.requests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.requests-table th,
+.requests-table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.requests-table th {
+    background-color: #e0f2f1;
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.requests-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+
+/* Columnas específicas */
+
+.col-id {
+    width: 60px;
+}
+
+.col-name,
+.col-date,
+.col-visibility {
+    width: 120px;
+}
+
+.col-actions button {
+    margin-right: 5px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.col-actions button:first-child {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.col-actions button:first-child:hover {
+    background-color: #43a047;
+}
+
+.col-actions button:last-child {
+    background-color: #c62828;
+    color: white;
+}
+
+.col-actions button:last-child:hover {
+    background-color: #e53935;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+    .header-container,
+    .panel-stats {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stat-card {
+        width: 100%;
+    }
+    .requests-table th,
+    .requests-table td {
+        padding: 12px;
+    }
+}

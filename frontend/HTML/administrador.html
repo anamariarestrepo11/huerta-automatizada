@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panel de administración para gestión de reseñas">
+    <meta name="author" content="Huerta-automatizada">
+    <title>Panel de Administración - Reseñas Ecoenergy</title>
+    <link rel="stylesheet" href="/frontend/ESTILOS/administrador.css">
+</head>
+
+<body>
+    <!-- =============================================
+    HEADER/NAVBAR DEL PANEL DE ADMINISTRACIÓN
+    ============================================= -->
+    <header class="admin-header">
+        <div class="header-container">
+            <div class="admin-logo">
+                <div class="logo">ECO</div>
+                <div class="admin-title">
+                    <h1>Panel de Administración</h1>
+                    <p>Gestión de reseñas de usuarios</p>
+                </div>
+            </div>
+            <div class="admin-actions">
+                <button onclick="cerrarSesion()" class="btn-logout">Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =============================================
+        CONTENEDOR PRINCIPAL DEL PANEL
+    ============================================= -->
+    <div class="admin-container">
+        <!-- Header del panel con estadísticas -->
+        <div class="panel-header">
+            <h2>Reseñas de Usuarios</h2>
+            <p>Gestiona todas las reseñas recibidas y controla su visibilidad en el sitio web</p>
+            <div class="panel-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="total_resenas">0</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="visibles_resenas">0</div>
+                    <div class="stat-label">Visibles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="invisibles_resenas">0</div>
+                    <div class="stat-label">Ocultas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla principal de reseñas -->
+        <div class="table-container">
+            <table class="requests-table">
+                <thead>
+                    <tr>
+                        <th class="col-id">ID</th>
+                        <th class="col-name">Nombre</th>
+                        <th class="col-review">Reseña</th>
+                        <th class="col-date">Fecha</th>
+                        <th class="col-visibility">Visible</th>
+                        <th class="col-actions">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="resenas_tabla">
+                    <!-- Reseñas cargadas dinámicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- =============================================
+        JAVASCRIPT INCRUSTADO
+    ============================================= -->
+
+    <script src="/frontend/JAVASCRIPT/cargar_resenas.js">
+    </script>
+    <script src="/frontend/JAVASCRIPT/dele.js">
+    </script>
+
+</body>
+
+</html>

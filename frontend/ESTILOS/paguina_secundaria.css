@@ -1,0 +1,242 @@
+/* PAGINA SECUNDARIA ESTILOS*/
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #e6f2e6;
+    color: #2e7d32;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Barra superior */
+
+nav {
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+nav .menu {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+nav .menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav .menu a:hover {
+    color: #a5d6a7;
+}
+
+nav .search-container {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav .search-container input[type="search"] {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    width: 180px;
+    transition: width 0.3s ease;
+}
+
+nav .search-container input[type="search"]:focus {
+    width: 250px;
+}
+
+/* Carrusel container centrado */
+
+.carousel {
+    margin: 20px auto 30px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 900px;
+    height: 350px;
+    background-color: #fff;
+}
+
+.carousel img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel img.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Botones carrusel */
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(46, 125, 50, 0.7);
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background-color: rgba(46, 125, 50, 1);
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+main {
+    flex-grow: 1;
+    padding: 0 30px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 40px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4a7c4a;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #2e7d32;
+    margin-top: auto;
+    border-top: 1px solid #c8e6c9;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botón moderno */
+
+.btn {
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #1b5e20;
+}
+
+/* Responsive nav menu y carrusel */
+
+@media (max-width: 600px) {
+    nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px 15px;
+    }
+    nav .menu {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        width: 100%;
+    } 
+    nav .search-container {
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+    nav .search-container input[type="search"] {
+        width: 90%;
+        max-width: 300px;
+    }
+    .carousel {
+        height: 220px;
+        margin: 15px 15px 25px;
+    }
+    .carousel img {
+        height: 220px;
+    }
+    main {
+        padding: 0 15px 30px;
+    }
+    footer {
+        padding: 10px;
+    }
+}
+

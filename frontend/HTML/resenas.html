@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reseñas - Huerta Automatizada</title>
+    <link rel="stylesheet" href="/frontend/ESTILOS/resenas.css">
+
+
+</head>
+
+<body>
+    <div class="navbar">
+        <h1>🌿 Huerta Automatizada</h1>
+        <span>Reseñas</span>
+    </div>
+
+    <div class="container">
+        <h2>💬 Deja tu reseña</h2>
+        <form id="formulario" onsubmit="enviarResena(event)">
+            <input type="text" id="username" placeholder="Tu nombre" required />
+            <textarea id="content" placeholder="Escribe tu reseña..." required></textarea>
+
+
+            <button type="submit">Publicar reseña</button>
+        </form>
+
+        <h2>📖 Reseñas de otros usuarios</h2>
+        <div class="reseñas" id="listaReseñas">
+            <!-- Aquí se mostrarán las reseñas -->
+        </div>
+
+        <div id="message"> </div>
+    </div>
+
+    <script src="/frontend/JAVASCRIPT/enviar_resenas.js"></script>
+
+
+</body>
+
+</html>
