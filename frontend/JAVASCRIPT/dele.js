@@ -19,7 +19,7 @@ function eliminarResena(id) {
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Error :', error);
                 alert('Error de conexión al eliminar la reseña');
             });
     }

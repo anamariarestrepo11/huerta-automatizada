@@ -11,7 +11,7 @@ require_once "db.php";
 
 $id = $_POST['id'];
 
-$sql = "DELETE FROM reviews WHERE id = ?";
+$sql = "DELETE FROM resenas WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 
