@@ -26,15 +26,47 @@
             <button type="submit">Publicar reseña</button>
         </form>
 
-        <h2>📖 Reseñas de otros usuarios</h2>
-        <div class="reseñas" id="listaReseñas">
-            <!-- Aquí se mostrarán las reseñas -->
-        </div>
+
+        <section>
+
+            <h2>📖 Reseñas de otros usuarios</h2>
+            <div class="reviews " id="resenas"> </div>
+        </section>
+
 
         <div id="message"> </div>
     </div>
 
     <script src="/frontend/JAVASCRIPT/enviar_resenas.js"></script>
+
+    <script>
+        function cargarResenas() {
+            fetch("http://localhost/huerta-automatizada/backend/reviews.php")
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById("resenas");
+                    container.innerHTML = "";
+                    if (!Array.isArray(data) || data.length === 0) {
+                        container.innerHTML = "<p>No hay reseñas disponibles.</p>";
+                        return;
+                    }
+                    data.forEach(resena => {
+                        const div = document.createElement("div");
+                        div.className = "review-card";
+                        div.innerHTML = `
+                    <p >"${resena.content}"</p>
+                    <p >- ${resena.name}</p>
+                    <p>${new Date(resena.created_at).toLocaleDateString('es-ES')}</p>
+                `;
+                        container.appendChild(div);
+                    });
+                })
+                .catch(err => {
+                    document.getElementById("resenas").innerHTML = "<p>Error al cargar reseñas.</p>";
+                });
+        }
+        window.onload = cargarResenas;
+    </script>
 
 
 </body>
