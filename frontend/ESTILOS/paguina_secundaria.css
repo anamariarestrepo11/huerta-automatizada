@@ -1,6 +1,5 @@
 /* PAGINA SECUNDARIA ESTILOS*/
 
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,6 +15,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
+
 
 /* Barra superior */
 
@@ -77,6 +77,7 @@ nav .search-container input[type="search"]:focus {
     width: 250px;
 }
 
+
 /* Carrusel container centrado */
 
 .carousel {
@@ -102,6 +103,7 @@ nav .search-container input[type="search"]:focus {
     display: block;
     opacity: 1;
 }
+
 
 /* Botones carrusel */
 
@@ -181,6 +183,7 @@ footer {
     margin-right: auto;
 }
 
+
 /* Botón moderno */
 
 .btn {
@@ -201,6 +204,7 @@ footer {
     background-color: #1b5e20;
 }
 
+
 /* Responsive nav menu y carrusel */
 
 @media (max-width: 600px) {
@@ -214,7 +218,7 @@ footer {
         gap: 15px;
         justify-content: center;
         width: 100%;
-    } 
+    }
     nav .search-container {
         width: 100%;
         text-align: center;
@@ -239,4 +243,3 @@ footer {
         padding: 10px;
     }
 }
-
