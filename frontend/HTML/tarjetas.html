@@ -47,6 +47,7 @@
             border-radius: 4px;
             border: none;
         }
+        /* ==== CARRUSEL ==== */
         
         .carousel {
             position: relative;
@@ -173,27 +174,29 @@
     <nav>
         <div class="logo">Ecotec</div>
         <div class="menu">
-            <a href="#">Inicio</a>
-            <a href="#">Admin</a>
-            <a href="#">Reseñas</a>
-            <a href="#">Política</a>
-            <a href="#">Contáctanos</a>
-            <a href="#">Nuestra visión</a>
+            <a href="index.html">Inicio</a>
+            <a href="administrador.html">Admin</a>
+            <a href="Registro.html">Reseñas</a>
+            <a href="politica.html">Política</a>
+            <a href="contacto.html">Contáctanos</a>
+            <a href="vision.html">Nuestra visión</a>
             <div class="search-container">
                 <input type="search" placeholder="Buscar..." aria-label="Buscar">
             </div>
         </div>
     </nav>
 
+    <!-- Carrusel -->
     <div class="carousel" aria-label="Carrusel de imágenes de huertos y granjas">
         <button class="carousel-button prev" aria-label="Imagen anterior">&#10094;</button>
         <button class="carousel-button next" aria-label="Imagen siguiente">&#10095;</button>
 
-        <img src="imagenes.jpg/imagen7.jpg" alt="imagen1" class="active">
-        <img src="imagenes.jpg/imagen8.jpg" alt="imagen2">
+        <!-- 🖼️ Asegúrate de que las imágenes estén en la carpeta /imagenes -->
+        <img src="imagenes.jpg/imagen10.jpg" alt="imagen1" class="active">
+        <img src="imagenes.jpg/Imagen11.png" alt="imagen2">
         <img src="imagenes.jpg/imagen9.webp" alt="imagen3">
-        <img src="imagenes.jpg/imagen10.jpg" alt="imagen4">
-        <img src="imagenes.jpg/imagen6.webp" alt="imagen5">
+        <img src="imagenes.jpg/imagen8.jpg" alt="imagen4">
+        <img src="imagenes.jpg/imagen7.jpg" alt="imagen5">
     </div>
 
     <main>
@@ -207,9 +210,9 @@
                 <input type="number" id="duracionRiego" min="1" max="60">
                 <label>Estado:</label>
                 <select id="estadoRiego">
-                    <option value="apagado">Apagado</option>
-                    <option value="encendido">Encendido</option>
-                </select>
+          <option value="apagado">Apagado</option>
+          <option value="encendido">Encendido</option>
+        </select>
                 <button type="button" class="btn" id="guardarRiego">💾 Guardar</button>
                 <button type="button" class="btn" id="activarRiego">🚿 Activar</button>
                 <p class="save-msg" id="msgRiego">Guardado ✅</p>
@@ -260,9 +263,9 @@
                 <input type="number" id="luzActual" min="0" max="100">
                 <label>Estado LED:</label>
                 <select id="estadoLED">
-                    <option value="apagado">Apagado</option>
-                    <option value="encendido">Encendido</option>
-                </select>
+          <option value="apagado">Apagado</option>
+          <option value="encendido">Encendido</option>
+        </select>
                 <button type="button" class="btn" id="guardarLuz">💾 Guardar</button>
                 <p class="save-msg" id="msgLuz">Guardado ✅</p>
             </form>
@@ -289,53 +292,171 @@
         &copy; 2025 Huerta Automatizada - Todos los derechos reservados
     </footer>
 
+    <!-- ==== SCRIPT COMPLETO ==== -->
     <script>
-        // ==== CARRUSEL ====
-        const images = document.querySelectorAll('.carousel img');
-        const prevBtn = document.querySelector('.carousel-button.prev');
-        const nextBtn = document.querySelector('.carousel-button.next');
-        let currentIndex = 0;
-        let interval;
+        /* 🪴 CÓDIGO FUNCIONAL COMPLETO */
+        document.addEventListener("DOMContentLoaded", () => {
+            // ==== CARRUSEL ====
+            const images = document.querySelectorAll('.carousel img');
+            const prevBtn = document.querySelector('.carousel-button.prev');
+            const nextBtn = document.querySelector('.carousel-button.next');
+            let currentIndex = 0;
+            let interval;
 
-        function showImage(index) {
-            images.forEach((img, i) => img.classList.toggle('active', i === index));
-        }
+            function showImage(index) {
+                images.forEach((img, i) => img.classList.toggle('active', i === index));
+            }
 
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            showImage(currentIndex);
-        }
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
 
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            showImage(currentIndex);
-        }
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            }
 
-        prevBtn.onclick = () => {
-            prevImage();
-            resetInterval();
-        };
-        nextBtn.onclick = () => {
-            nextImage();
-            resetInterval();
-        };
+            function resetInterval() {
+                clearInterval(interval);
+                interval = setInterval(nextImage, 5000);
+            }
 
-        function resetInterval() {
-            clearInterval(interval);
+            prevBtn.addEventListener("click", () => {
+                prevImage();
+                resetInterval();
+            });
+            nextBtn.addEventListener("click", () => {
+                nextImage();
+                resetInterval();
+            });
+
             interval = setInterval(nextImage, 5000);
-        }
-        interval = setInterval(nextImage, 5000);
 
-        // ==== FUNCIONES DE GUARDAR DATOS ====
-        const guardarRiegoBtn = document.getElementById('guardarRiego');
-        const horaInput = document.getElementById('horaRiego');
-        const duracionInput = document.getElementById('duracionRiego');
-        const estadoSelect = document.getElementById('estadoRiego');
-        const msgRiego = document.getElementById('msgRiego');
-        const horaGuardada = document.getElementById('horaGuardada');
-        const duracionGuardada = document.getElementById('duracionGuardada');
-        const estadoGuardado = document.getElementById('estadoGuardado');
+            // ==== RIEGO MANUAL ====
+            const guardarRiegoBtn = document.getElementById('guardarRiego');
+            const horaInput = document.getElementById('horaRiego');
+            const duracionInput = document.getElementById('duracionRiego');
+            const estadoSelect = document.getElementById('estadoRiego');
+            const msgRiego = document.getElementById('msgRiego');
+            const horaGuardada = document.getElementById('horaGuardada');
+            const duracionGuardada = document.getElementById('duracionGuardada');
+            const estadoGuardado = document.getElementById('estadoGuardado');
 
-        guardarRiegoBtn.addEventListener('click', () => {
-                    localStorage.setItem('horaRiego', horaInput.value);
-                    localStorage.setItem('duracion
+            guardarRiegoBtn.addEventListener('click', () => {
+                localStorage.setItem('horaRiego', horaInput.value);
+                localStorage.setItem('duracionRiego', duracionInput.value);
+                localStorage.setItem('estadoRiego', estadoSelect.value);
+
+                horaGuardada.textContent = horaInput.value || "--";
+                duracionGuardada.textContent = duracionInput.value || "--";
+                estadoGuardado.textContent = estadoSelect.value || "--";
+
+                msgRiego.style.display = "block";
+                setTimeout(() => msgRiego.style.display = "none", 1500);
+            });
+
+            const horaGuardadaLS = localStorage.getItem('horaRiego');
+            const duracionGuardadaLS = localStorage.getItem('duracionRiego');
+            const estadoGuardadoLS = localStorage.getItem('estadoRiego');
+
+            if (horaGuardadaLS) horaInput.value = horaGuardadaLS;
+            if (duracionGuardadaLS) duracionInput.value = duracionGuardadaLS;
+            if (estadoGuardadoLS) estadoSelect.value = estadoGuardadoLS;
+
+            horaGuardada.textContent = horaGuardadaLS || "--";
+            duracionGuardada.textContent = duracionGuardadaLS || "--";
+            estadoGuardado.textContent = estadoGuardadoLS || "--";
+
+            // ==== HUMEDAD ====
+            const guardarHumedad = document.getElementById('guardarHumedad');
+            const nivelHumedad = document.getElementById('nivelHumedad');
+            const umbralHumedad = document.getElementById('umbralHumedad');
+            const msgHumedad = document.getElementById('msgHumedad');
+            const nivelHumedadGuardado = document.getElementById('nivelHumedadGuardado');
+            const umbralHumedadGuardado = document.getElementById('umbralHumedadGuardado');
+
+            guardarHumedad.addEventListener('click', () => {
+                localStorage.setItem('nivelHumedad', nivelHumedad.value);
+                localStorage.setItem('umbralHumedad', umbralHumedad.value);
+
+                nivelHumedadGuardado.textContent = nivelHumedad.value || "--";
+                umbralHumedadGuardado.textContent = umbralHumedad.value || "--";
+
+                msgHumedad.style.display = "block";
+                setTimeout(() => msgHumedad.style.display = "none", 1500);
+            });
+
+            nivelHumedad.value = localStorage.getItem('nivelHumedad') || "";
+            umbralHumedad.value = localStorage.getItem('umbralHumedad') || "";
+            nivelHumedadGuardado.textContent = localStorage.getItem('nivelHumedad') || "--";
+            umbralHumedadGuardado.textContent = localStorage.getItem('umbralHumedad') || "--";
+
+            // ==== TEMPERATURA ====
+            const guardarTemp = document.getElementById('guardarTemp');
+            const tempActual = document.getElementById('tempActual');
+            const rangoTemp = document.getElementById('rangoTemp');
+            const msgTemp = document.getElementById('msgTemp');
+            const tempActualGuardada = document.getElementById('tempActualGuardada');
+            const rangoTempGuardado = document.getElementById('rangoTempGuardado');
+
+            guardarTemp.addEventListener('click', () => {
+                localStorage.setItem('tempActual', tempActual.value);
+                localStorage.setItem('rangoTemp', rangoTemp.value);
+
+                tempActualGuardada.textContent = tempActual.value || "--";
+                rangoTempGuardado.textContent = rangoTemp.value || "--";
+
+                msgTemp.style.display = "block";
+                setTimeout(() => msgTemp.style.display = "none", 1500);
+            });
+
+            tempActual.value = localStorage.getItem('tempActual') || "";
+            rangoTemp.value = localStorage.getItem('rangoTemp') || "";
+            tempActualGuardada.textContent = localStorage.getItem('tempActual') || "--";
+            rangoTempGuardado.textContent = localStorage.getItem('rangoTemp') || "--";
+
+            // ==== LUZ ====
+            const guardarLuz = document.getElementById('guardarLuz');
+            const luzActual = document.getElementById('luzActual');
+            const estadoLED = document.getElementById('estadoLED');
+            const msgLuz = document.getElementById('msgLuz');
+            const luzActualGuardada = document.getElementById('luzActualGuardada');
+            const estadoLEDGuardado = document.getElementById('estadoLEDGuardado');
+
+            guardarLuz.addEventListener('click', () => {
+                localStorage.setItem('luzActual', luzActual.value);
+                localStorage.setItem('estadoLED', estadoLED.value);
+
+                luzActualGuardada.textContent = luzActual.value || "--";
+                estadoLEDGuardado.textContent = estadoLED.value || "--";
+
+                msgLuz.style.display = "block";
+                setTimeout(() => msgLuz.style.display = "none", 1500);
+            });
+
+            luzActual.value = localStorage.getItem('luzActual') || "";
+            estadoLED.value = localStorage.getItem('estadoLED') || "";
+            luzActualGuardada.textContent = localStorage.getItem('luzActual') || "--";
+            estadoLEDGuardado.textContent = localStorage.getItem('estadoLED') || "--";
+
+            // ==== ALERTAS ====
+            const guardarAlerta = document.getElementById('guardarAlerta');
+            const mensajeAlerta = document.getElementById('mensajeAlerta');
+            const msgAlerta = document.getElementById('msgAlerta');
+            const mensajeAlertaGuardado = document.getElementById('mensajeAlertaGuardado');
+
+            guardarAlerta.addEventListener('click', () => {
+                localStorage.setItem('mensajeAlerta', mensajeAlerta.value);
+                mensajeAlertaGuardado.textContent = mensajeAlerta.value || "Sin alertas.";
+                msgAlerta.style.display = "block";
+                setTimeout(() => msgAlerta.style.display = "none", 1500);
+            });
+
+            mensajeAlerta.value = localStorage.getItem('mensajeAlerta') || "";
+            mensajeAlertaGuardado.textContent = localStorage.getItem('mensajeAlerta') || "Sin alertas.";
+        });
+    </script>
+</body>
+
+</html>
